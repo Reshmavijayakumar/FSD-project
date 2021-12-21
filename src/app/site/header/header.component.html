@@ -1,0 +1,89 @@
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+        <a class="disable"> </a>
+        <a class="navbar-brand text-light"  routerLink="">
+            <i class="material-icons mt-2">groups</i>
+        </a>
+        <a class="navbar-brand text-light" routerLink=""> TweetApp </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" *ngIf="isAuthenticated()" routerLink="add-tweet">New Tweet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" *ngIf="isAuthenticated()" routerLink="user-posts">My Tweets</a>
+                </li>
+
+                <li class="nav-item" style="padding-right: 1vw;">
+                    <a class="nav-link text-light" routerLink="/">All Tweets</a>
+                </li>
+
+                <li class="nav-item mt-1">
+                    <div class="input-append">
+                        <form class="form-inline">
+                            <input class="form-control search-box-radius searchbar" type="search" placeholder="Tweets by user"
+                                aria-label="Search" (input)="OnSearchPeople($event)">
+                                <button class="input-group-text mr-sm-2 bg-inherit-from-parent search-icon-radius">
+                                    <i class="material-icons text-light">search</i>
+                                </button>
+                        </form>
+                    </div>
+                </li>
+
+                <li class="nav-item mt-1 pb-1" *ngIf="!isAuthenticated()" style="padding-right: 5vw;">
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-inherit-from-parent" id="addon-wrapping">
+                                <i class="material-icons text-light">person</i>
+                            </span>
+                            <button type="button"
+                                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split bg-inherit-from-parent"
+                                 data-toggle="dropdown" aria-expanded="false">
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" routerLink="login">Login</a>
+                                <a class="dropdown-item" routerLink="signup">Register</a>
+                                <a class="dropdown-item" routerLink="change-password">Forgot Password?</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item mt-1 pb-1" *ngIf="isAuthenticated()" style="padding-right: 5vw;">
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-inherit-from-parent" id="addon-wrapping">
+                                <i class="material-icons text-light">person</i>
+                            </span>
+                            <button type="button"
+                                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split bg-inherit-from-parent"
+                                 data-toggle="dropdown" aria-expanded="false">
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item disabled">
+                                    {{getUsername()}}
+                                </a>
+                                <div role="separator" class="dropdown-divider"></div>
+                                <a class="dropdown-item" routerLink="change-password">Reset Password</a>
+                                <a class="dropdown-item" (click)="logout()" style="cursor:pointer">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li style="padding-right:80px;"></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+<footer class="navbar text-light fixed-bottom d-flex bg-custom">
+    <div> Copyright 2021 </div>
+</footer>

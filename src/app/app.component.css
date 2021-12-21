@@ -1,0 +1,12 @@
+.search-box-radius {
+    border-radius: 4px 0 0 4px;
+}
+
+.search-icon-radius {
+    border-radius: 0 4px 4px 0;
+}
+/*.search-box {
+	background-image:
+        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNCb7C4nYjIdQ86H_G8PgLp9rtxjLE75lTnQ&usqp=CAU');
+    height:3500px;
+}*/
